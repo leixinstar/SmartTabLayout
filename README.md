@@ -26,13 +26,13 @@ Add the dependency to your build.gradle.
 
 ```
 dependencies {
-    compile 'com.ogaclejapan.smarttablayout:library:1.4.2@aar'
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.0@aar'
 
     //Optional: see how to use the utility.
-    compile 'com.ogaclejapan.smarttablayout:utils-v4:1.4.2@aar'
+    compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.0@aar'
 
     //Optional: see how to use the utility.
-    compile 'com.ogaclejapan.smarttablayout:utils-v13:1.4.2@aar'
+    compile 'com.ogaclejapan.smarttablayout:utils-v13:1.6.0@aar'
 }
 ```
 
@@ -52,6 +52,7 @@ This should usually be placed above the ViewPager it represents.
     app:stl_indicatorGravity="bottom"
     app:stl_indicatorColor="#40C4FF"
     app:stl_indicatorThickness="4dp"
+    app:stl_indicatorWidth="auto"
     app:stl_indicatorCornerRadius="2dp"
     app:stl_overlineColor="#4D000000"
     app:stl_overlineThickness="0dp"
@@ -67,6 +68,8 @@ This should usually be placed above the ViewPager it represents.
     app:stl_defaultTabTextMinWidth="0dp"
     app:stl_distributeEvenly="false"
     app:stl_clickable="true"
+    app:stl_titleOffset="24dp"
+    app:stl_drawDecorationAfterTab="false"
     />
 
 <android.support.v4.view.ViewPager
@@ -101,6 +104,7 @@ viewPagerTab.setViewPager(viewPager);
 
 (Optional) If you use an OnPageChangeListener with your view pager you should set it in the widget rather than on the pager directly.
 
+
 ```java
 
 viewPagerTab.setOnPageChangeListener(mPageChangeListener);
@@ -131,6 +135,7 @@ There are several attributes you can set:
 | stl_indicatorColor | Color of the indicator |
 | stl_indicatorColors | Multiple colors of the indicator, can set the color for each tab |
 | stl_indicatorThickness | Thickness of the indicator |
+| stl_indicatorWidth | Width of the indicator, default 'auto' |
 | stl_indicatorCornerRadius | Radius of rounded corner the indicator |
 | stl_overlineColor | Color of the top line |
 | stl_overlineThickness | Thickness of the top line |
@@ -149,7 +154,8 @@ There are several attributes you can set:
 | stl_customTabTextViewId | Text view ID in a custom tab layout. If you do not define with customTabTextLayoutId, does not work |
 | stl_distributeEvenly | If set to true, each tab is given the same weight, default false |
 | stl_clickable | If set to false, disable the selection of a tab click, default true |
-
+| stl_titleOffset | If set to 'auto_center', the slide position of the tab in the middle it will keep to the center. If specify a dimension it will be offset from the left edge, default 24dp |
+| stl_drawDecorationAfterTab | Draw the decoration(indicator and lines) after drawing of tab, default false |
 
 *__Notes:__ Both 'stl_indicatorAlwaysInCenter' and 'stl_distributeEvenly' if it is set to true, it will throw UnsupportedOperationException.*
 
@@ -250,11 +256,12 @@ public void onPageSelected(int position) {
 
 ```
 
+*__Notes:__ If using fragment inside a ViewPager, Must be use [Fragment#getChildFragmentManager()](http://developer.android.com/reference/android/support/v4/app/Fragment.html#getChildFragmentManager).*
 
 # Apps Using SmartTabLayout
 
 * [Qiitanium][qiitanium]
-
+* [Ameba](https://play.google.com/store/apps/details?id=jp.ameba&hl=ja)
 
 # LICENSE
 
@@ -282,7 +289,7 @@ limitations under the License.
 [demo5_gif]: https://raw.githubusercontent.com/ogaclejapan/SmartTabLayout/master/art/demo5.gif
 [demo6_gif]: https://raw.githubusercontent.com/ogaclejapan/SmartTabLayout/master/art/demo6.gif
 [demo7_gif]: https://raw.githubusercontent.com/ogaclejapan/SmartTabLayout/master/art/demo7.gif
-[demo_app]: https://play.google.com/store/apps/details?id=com.ogaclejapan.smarttablayout.demo
+[demo_app]: https://play.google.com/store/apps/details?id=com.ogaclejapan.smarttablayout.demo&referrer=utm_source%3Dgithub
 [demo_icon]: https://raw.githubusercontent.com/ogaclejapan/SmartTabLayout/master/art/icon.png
 [googleplay_store_badge]: https://developer.android.com/images/brand/en_generic_rgb_wo_60.png
 [maven_central_badge_svg]: https://maven-badges.herokuapp.com/maven-central/com.ogaclejapan.smarttablayout/library/badge.svg?style=flat

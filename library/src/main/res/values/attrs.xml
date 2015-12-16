@@ -16,6 +16,9 @@
     <attr name="stl_indicatorColor" format="color"/>
     <attr name="stl_indicatorColors" format="reference"/>
     <attr name="stl_indicatorThickness" format="dimension"/>
+    <attr name="stl_indicatorWidth" format="dimension">
+      <enum name="auto" value="-1"/>
+    </attr>
     <attr name="stl_indicatorCornerRadius" format="dimension"/>
     <attr name="stl_overlineColor" format="color"/>
     <attr name="stl_overlineThickness" format="dimension"/>
@@ -34,5 +37,9 @@
     <attr name="stl_customTabTextViewId" format="reference"/>
     <attr name="stl_distributeEvenly" format="boolean"/>
     <attr name="stl_clickable" format="boolean"/>
+    <attr name="stl_titleOffset" format="dimension">
+      <enum name="auto_center" value="-1"/>
+    </attr>
+    <attr name="stl_drawDecorationAfterTab" format="boolean"/>
   </declare-styleable>
 </resources>
